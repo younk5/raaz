@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cho ADC? | Guia Cho ADC</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para a página Cho ADC */
+        .champion-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            position: relative;
+        }
+        
+        .profile-image-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--void-green);
+            box-shadow: 0 0 20px var(--void-green-muted);
+            margin-bottom: var(--space-md);
+            position: relative;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--void-green);
+            margin-bottom: var(--space-xs);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+        }
+        
+        .profile-title {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .profile-quote {
+            font-style: italic;
+            color: var(--text-bright);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--space-md);
+            padding: var(--space-sm);
+            background-color: rgba(106, 13, 173, 0.2);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--void-green);
+        }
+        
+        .guide-section {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-xl);
+            border: var(--border-glow);
+            box-shadow: var(--shadow-void);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--void-green), transparent);
+            box-shadow: 0 0 15px var(--void-green-muted);
+        }
+        
+        .section-heading {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--void-green);
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .section-heading svg {
+            stroke: var(--void-green);
+            fill: none;
+            width: 28px;
+            height: 28px;
+        }
+        
+        .champion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+        
+        .champion-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .champion-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--void-purple-light);
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+        
+        .champion-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: all var(--transition-normal);
+        }
+        
+        .champion-icon:hover {
+            border-color: var(--void-green);
+            box-shadow: 0 0 15px var(--void-green-muted);
+            transform: scale(1.1);
+        }
+        
+        .champion-icon:hover img {
+            filter: grayscale(0%);
+        }
+        
+        .champion-name {
+            margin-top: var(--space-xs);
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .champion-item:hover .champion-name {
+            color: var(--void-green);
+        }
+        
+        .gameplay-tips {
+            list-style: none;
+            padding: 0;
+            margin: var(--space-md) 0;
+        }
+        
+        .tip-item {
+            padding: var(--space-sm);
+            margin-bottom: var(--space-sm);
+            background-color: rgba(106, 13, 173, 0.2);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--void-purple-light);
+            transition: all var(--transition-normal);
+        }
+        
+        .tip-item:hover {
+            border-left-color: var(--void-green);
+            background-color: rgba(106, 13, 173, 0.4);
+            transform: translateX(5px);
+        }
+        
+        .tip-title {
+            font-weight: 600;
+            color: var(--void-green);
+            margin-bottom: var(--space-xs);
+            display: block;
+        }
+        
+        .image-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+        
+        .showcase-item {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-void);
+            border: var(--border-glow);
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+        
+        .showcase-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(106, 13, 173, 0.4);
+        }
+        
+        .showcase-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: all var(--transition-normal);
+        }
+        
+        .showcase-item:hover .showcase-img {
+            transform: scale(1.05);
+        }
+        
+        .showcase-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(15, 0, 20, 0.9), transparent);
+            padding: var(--space-md) var(--space-sm) var(--space-sm);
+            color: var(--text-bright);
+            font-weight: 500;
+        }
+        
+        .pro-cons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+        
+        .pro-con-section {
+            background-color: rgba(15, 0, 20, 0.4);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            position: relative;
+        }
+        
+        .pros {
+            border-top: 3px solid var(--void-green);
+        }
+        
+        .cons {
+            border-top: 3px solid var(--void-red);
+        }
+        
+        .pro-con-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .pros .pro-con-title {
+            color: var(--void-green);
+        }
+        
+        .cons .pro-con-title {
+            color: var(--void-red);
+        }
+        
+        .pro-con-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .pro-con-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid rgba(106, 13, 173, 0.3);
+        }
+        
+        .pro-con-item svg {
+            min-width: 24px;
+            height: 24px;
+            stroke-width: 2;
+        }
+        
+        .pros .pro-con-item svg {
+            stroke: var(--void-green);
+            fill: none;
+        }
+        
+        .cons .pro-con-item svg {
+            stroke: var(--void-red);
+            fill: none;
+        }
+        
+        /* Responsividade adicional */
+        @media (max-width: 768px) {
+            .pro-cons-grid,
+            .image-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .champion-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="void-particles"></div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <h1 class="logo">Guia Cho ADC</h1>
+                <div class="logo-accent"></div>
+            </div>
+            <p class="tagline">Devore a rota inferior como um verdadeiro terror do Vazio</p>
+        </div>
+        <div class="header-decoration">
+            <div class="void-spike void-spike-1"></div>
+            <div class="void-spike void-spike-2"></div>
+            <div class="void-spike void-spike-3"></div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="../../a.html" class="nav-link">Início</a></li>
+            <li class="nav-item active"><a href="#" class="nav-link">Guias</a></li>
+            <li class="nav-item"><a href="./matchup.html" class="nav-link">Matchups</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="champion-profile">
+            <div class="profile-image-container">
+                <img src="../../ims/cho_portrait.jpg" alt="Cho'Gath Portrait" class="profile-image">
+            </div>
+            <h1 class="profile-name">Cho'Gath ADC</h1>
+            <p class="profile-title">O TERROR DO VAZIO NA ROTA INFERIOR</p>
+            <blockquote class="profile-quote">
+                "Sou o Raazgriz, sou mono Cho e serei o seu ADC (provavelmente). Prometo me esforçar para não trolar sua partida :)"
+            </blockquote>
+        </div>
+        
+        <div class="guide-section">
+            <h2 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Cho'Gath ADC - Vale a Pena?
+            </h2>
+            <p>Cho'ADC é forte? Não, mas brilha em lutas de equipe e na lane caso você dê uma leve vantagem para ele. Também é ótimo em dar pickoffs, então andem com ele que ele fica bem grande e duro!</p>
+            
+
+            </div>
+            
+            <div class="pro-cons-grid">
+                <div class="pro-con-section pros">
+                    <h3 class="pro-con-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        Pontos Fortes
+                    </h3>
+                    <ul class="pro-con-list">
+                        <li class="pro-con-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Escala infinitamente com stacks de ultimate</span>
+                        </li>
+                        <li class="pro-con-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Combo de knockup + silence é devastador quando acerta</span>
+                        </li>
+                        <li class="pro-con-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Execução garantida com ultimate true damage</span>
+                        </li>
+                        <li class="pro-con-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Ótimo em lutas de equipe com muito CC e área de efeito</span>
+                        </li>
+                        <li class="pro-con-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Fator surpresa - ninguém espera um Cho'Gath ADC!</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="pro-con-section cons">
+                    <h3 class="pro-con-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        Pontos Fracos
+                    </h3>
+                    <ul class="pro-con-list">
+                        <li class="pro-con-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>Mobilidade extremamente baixa, vulnerável a kiting</span>
+                        </li>
+                        <li class="pro-con-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>Habilidades de skillshot difíceis de acertar</span>
+                        </li>
+                        <li class="pro-con-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>Early game fraco, dependente de suporte</span>
+                        </li>
+                        <li class="pro-con-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>DPS sustentado inferior a ADCs tradicionais</span>
+                        </li>
+                        <li class="pro-con-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>Seu time pode achar que você está trolando</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="guide-section">
+            <h2 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12" y2="16"></line>
+                </svg>
+                Melhores Suportes para Cho'Gath ADC
+            </h2>
+            <p>Escolha os suportes certos para maximizar o potencial do seu Cho'Gath na rota inferior:</p>
+            
+            <div class="champion-grid">
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Alistar.png" alt="Alistar">
+                    </div>
+                    <span class="champion-name">Alistar</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Braum.png" alt="Braum">
+                    </div>
+                    <span class="champion-name">Braum</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Karma.png" alt="Karma">
+                    </div>
+                    <span class="champion-name">Karma</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Leona.png" alt="Leona">
+                    </div>
+                    <span class="champion-name">Leona</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Nami.png" alt="Nami">
+                    </div>
+                    <span class="champion-name">Nami</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Nautilus.png" alt="Nautilus">
+                    </div>
+                    <span class="champion-name">Nautilus</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Pyke.png" alt="Pyke">
+                    </div>
+                    <span class="champion-name">Pyke</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Rakan.png" alt="Rakan">
+                    </div>
+                    <span class="champion-name">Rakan</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Rell.png" alt="Rell">
+                    </div>
+                    <span class="champion-name">Rell</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Seraphine.png" alt="Seraphine">
+                    </div>
+                    <span class="champion-name">Seraphine</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Taric.png" alt="Taric">
+                    </div>
+                    <span class="champion-name">Taric</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon">
+                        <img src="../../ims/champs/Thresh.png" alt="Thresh">
+                    </div>
+                    <span class="champion-name">Thresh</span>
+                </div>
+            </div>
+            
+            <h3>Por que esses suportes funcionam bem?</h3>
+            <ul class="gameplay-tips">
+                <li class="tip-item">
+                    <span class="tip-title">Suportes com Engage Forte</span>
+                    Blitzcrank, Thresh, Leona e Nautilus garantem que você consiga acertar suas habilidades com facilidade após eles iniciarem.
+                </li>
+                <li class="tip-item">
+                    <span class="tip-title">Camada de CC</span>
+                    Suportes que possam ajudar a encadear crowd control com seu Q e W garantem kills mais facilmente.
+                </li>
+            </ul>
+        </div>
+
+        <div class="guide-section">
+            <h2 class="section-heading" style="color: #dc2626;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <circle cx="12" cy="12" r="10" fill="#dc2626"/>
+                    <path stroke="#fff" stroke-width="2" d="M8 8l8 8m0-8l-8 8"/>
+                </svg>
+                Piores Suportes para Cho'Gath ADC
+            </h2>
+            <p class="negative-intro">Cuidado com esses suportes que podem transformar sua lane em um verdadeiro pesadelo:</p>
+        
+            <div class="champion-grid worst-supports">
+                <div class="champion-item">
+                    <div class="champion-icon negative">
+                        <img src="../../ims/champs/Milio.png" alt="Milio">
+                    </div>
+                    <span class="champion-name">Milio</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon negative">
+                        <img src="../../ims/champs/Senna.png" alt="Senna">
+                    </div>
+                    <span class="champion-name">Senna</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon negative">
+                        <img src="../../ims/champs/Sona.png" alt="Sona">
+                    </div>
+                    <span class="champion-name">Sona</span>
+                </div>
+                <div class="champion-item">
+                    <div class="champion-icon negative">
+                        <img src="../../ims/champs/Yuumi.png" alt="Yuumi">
+                    </div>
+                    <span class="champion-name">Yuumi</span>
+                </div>
+            </div>
+        
+            <h3 class="negative-subtitle">Por que esses suportes são problemáticos?</h3>
+            <ul class="gameplay-tips negative-tips">
+                <li class="tip-item negative">
+                    <span class="tip-title">Sinergia Zero</span>
+                    Suportes sem engage ou peel deixam você completamente vulnerável a ganks e all-ins.
+                </li>
+                <li class="tip-item negative">
+                    <span class="tip-title">Pressão de Lane Inexistente</span>
+                    Combinações passivas permitem que o inimigo domine a rota livremente.
+                </li>
+            </ul>
+        </div>
+        
+        <div class="guide-section">
+            <h2 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                Dicas de Gameplay
+            </h2>
+            
+            <ul class="gameplay-tips">
+                <li class="tip-item">
+                    <span class="tip-title">Comece com Anel de Doran</span>
+                    O mana sustain e AP inicial são mais úteis do que os itens típicos de ADC no early game.
+                </li>
+                <li class="tip-item">
+                    <span class="tip-title">Foque em Stacks</span>
+                    Use sua ultimate sempre que possível para conseguir stacks. Priorize dragões, arautos e kills.
+                </li>
+                <li class="tip-item">
+                    <span class="tip-title">Skill Order</span>
+                    Maximize Q primeiro para melhor wave clear e dano, depois W, deixando E por último.
+                </li>
+                <li class="tip-item">
+                    <span class="tip-title">Posicionamento na Lane</span>
+                    No nível 1, evite trocas diretas, pois Cho'Gath é fraco nesse estágio. Foque em farmar à distância, posicionando-se atrás dos minions e utilizando o Q para pokear o inimigo. Priorize jogadas seguras e evite trocas prolongadas.
+                <li class="tip-item">
+                    <span class="tip-title">Combo de Habilidades</span>
+                    Q (knockup) → E (slow) → W (silence) → R (execute) é o combo ideal quando todas as habilidades estiverem disponíveis.
+                </li>
+                <li class="tip-item">
+                    <span class="tip-title">Posicionamento em Team Fights</span>
+                    Apesar de estar na posição de ADC, seu papel é mais parecido com o de um mago/tank. Posicione-se para usar Q em vários alvos.
+                </li>
+                <li class="tip-item">
+                    <span class="tip-title">Items</span>
+                    Protobelt → Eco de ludens → Zhonya's → Rabadon → Cajado do vazio 
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3 class="footer-logo-text">Guia Cho ADC</h3>
+                <p class="footer-tagline">Seu guia definitivo para dominar a rota inferior</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul class="footer-menu">
+                        <li><a href="a.html">Início</a></li>
+                        <li><a href="#guias">Guias</a></li>
+                        <li><a href="matchups.html">Matchups</a></li>
+                        <li><a href="paginas/sobre.html">Sobre mim</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+                
+                
+            <div class="footer-column">
+                <h4 class="footer-heading">Redes Sociais</h4>
+                <nav class="social-links" aria-label="Links para redes sociais">
+                    <!-- Twitter -->
+                    <a href="https://x.com/Raazgriz" class="social-link twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter do Choga">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <title>Twitter</title>
+                            <path fill="currentColor" d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                    </a>
+            
+                    <!-- Twitch -->
+                    <a href="https://www.twitch.tv/raazgrizz" class="social-link twitch" target="_blank" rel="noopener noreferrer" aria-label="Twitch do Choga">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <title>Twitch</title>
+                            <path fill="currentColor" d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"/>
+                        </svg>
+                    </a>
+            
+                    <!-- YouTube -->
+                    <a href="https://www.youtube.com/@Raazgriz" class="social-link youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube do Choga">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <title>YouTube</title>
+                            <path fill="currentColor" d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                            <polygon fill="currentColor" points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                        </svg>
+                    </a>
+            
+                    <!-- Discord -->
+                    <a href="https://discord.gg/p3vzAtpgBN" class="social-link discord" target="_blank" rel="noopener noreferrer" aria-label="Servidor Discord do Choga">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <title>Discord</title>
+                            <path fill="currentColor" d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09c-.01-.02-.04-.03-.07-.03c-1.5.26-2.93.71-4.27 1.33c-.01 0-.02.01-.03.02c-2.72 4.07-3.47 8.03-3.1 11.95c0 .02.01.04.03.05c1.8 1.32 3.53 2.12 5.24 2.65c.03.01.06 0 .07-.02c.4-.55.76-1.13 1.07-1.74c.02-.04 0-.08-.04-.09c-.57-.22-1.11-.48-1.64-.78c-.04-.02-.04-.08-.01-.11c.11-.08.22-.17.33-.25c.02-.02.05-.02.07-.01c3.44 1.57 7.15 1.57 10.55 0c.02-.01.05-.01.07.01c.11.09.22.17.33.26c.04.03.04.09-.01.11c-.52.31-1.07.56-1.64.78c-.04.01-.05.06-.04.09c.32.61.68 1.19 1.07 1.74c.03.01.06.02.09.01c1.72-.53 3.45-1.33 5.25-2.65c.02-.01.03-.03.03-.05c.44-4.53-.73-8.46-3.1-11.95c-.01-.01-.02-.02-.04-.02zM8.52 14.91c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12c0 1.17-.84 2.12-1.89 2.12zm6.96 0c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12c0 1.17-.83 2.12-1.89 2.12z"/>
+                        </svg>
+                    </a>
+                </nav>
+            </div>
+            
+            <style>
+            .footer-column {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            
+            .social-links {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .social-link {
+                display: inline-flex;
+                padding: 0.5rem;
+                border-radius: 50%;
+                transition: all 0.2s ease;
+                color: currentColor;
+                opacity: 0.8;
+            }
+            
+            .social-link:hover {
+                transform: translateY(-3px);
+                opacity: 1;
+                background-color: rgba(255,255,255,0.1);
+            }
+            
+            .social-link.discord:hover {
+                color: #5865F2;
+            }
+            
+            .social-link.twitter:hover {
+                color: #1DA1F2;
+            }
+            
+            .social-link.twitch:hover {
+                color: #9146FF;
+            }
+            
+            .social-link.youtube:hover {
+                color: #FF0000;
+            }
+            
+            .social-icon {
+                width: 24px;
+                height: 24px;
+                transition: transform 0.2s ease;
+            }
+            
+            .social-link:hover .social-icon {
+                transform: scale(1.1);
+            }
+            
+            .social-link:focus-visible {
+                outline: 2px solid currentColor;
+                outline-offset: 2px;
+            }
+            </style>
+    </footer>
+    </body>
+</html>

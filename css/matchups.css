@@ -1,0 +1,395 @@
+:root {
+    /* Cores principais do Cho'Gath */
+    --void-purple: #6a0dad;
+    --void-purple-dark: #4a0080;
+    --void-purple-light: #9d4edd;
+    --void-green: #39ff14;
+    --void-green-muted: rgba(57, 255, 20, 0.6);
+    --void-red: #c51350;
+    --void-text: #e4e4ff;
+    
+    /* Cores de background e UI */
+    --bg-dark: #0f0014;
+    --bg-surface: #1a0025;
+    --card-bg: #230033;
+    --card-bg-hover: #3a0055;
+    
+    /* Cores funcionais */
+    --accent: var(--void-green);
+    --accent-muted: rgba(57, 255, 20, 0.3);
+    --text-bright: #ffffff;
+    --text-primary: #e8dfff;
+    --text-secondary: #b5a9d4;
+    
+    /* Sombras */
+    --shadow-void: 0 5px 25px rgba(106, 13, 173, 0.25);
+    --shadow-accent: 0 5px 25px rgba(57, 255, 20, 0.25);
+    --shadow-inner: inset 0 0 25px rgba(106, 13, 173, 0.5);
+    
+    /* Dimensões e espaçamento */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-xxl: 5rem;
+    
+    /* Animações */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Bordas e decorações */
+    --border-glow: 1px solid rgba(106, 13, 173, 0.5);
+    --border-accent: 1px solid rgba(57, 255, 20, 0.5);
+}
+
+/* Image Enhancement */
+.card-img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+.skill-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    border: var(--border-glow);
+}
+
+.skill-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* Reduzido para aproximar os ícones */
+    margin-bottom: var(--space-md);
+}
+
+.skill-icon-wrapper {
+    position: relative;
+}
+
+.skill-icon-tooltip {
+    position: relative;
+}
+
+.skill-icon-inner {
+    position: relative;
+    display: inline-block;
+    transition: transform var(--transition-normal);
+}
+
+.skill-icon-inner:hover {
+    transform: scale(1.1);
+}
+
+.skill-icon-image {
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--void-purple-light);
+    box-shadow: 
+        0 0 20px var(--void-purple), 
+        var(--shadow-void);
+}
+
+.skill-icon-label {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--void-purple-dark);
+    color: var(--void-green);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    border: var(--border-accent);
+}
+
+.skill-sequence {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.skill-sequence-item {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius-sm);
+    font-weight: bold;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.skill-sequence-item.dark {
+    background-color: var(--void-purple);
+    color: var(--void-green);
+    box-shadow: var(--shadow-void);
+}
+
+.skill-sequence-item.light {
+    background-color: var(--card-bg-hover);
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-inner);
+}
+
+.skill-sequence-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 10px 20px rgba(106, 13, 173, 0.5),
+        var(--border-glow);
+}
+
+@media (max-width: 768px) {
+    .skill-icons {
+        gap: 12px;
+    }
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skill-order-container {
+        padding: var(--space-md);
+    }
+
+    .skill-icons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .skill-icon img {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+
+.matchup-detail {
+    max-width: 1200px; /* Aumentado para melhor aproveitamento de telas grandes */
+    margin: 0 auto;
+    padding: var(--space-xl);
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-xxl); /* Suavizar bordas do container principal */
+    box-shadow: var(--shadow-elevation-high); /* Adicionar profundidade */
+}
+
+.matchup-header {
+    display: flex;
+    flex-wrap: wrap; /* Permitir quebra em telas pequenas */
+    align-items: center;
+    gap: var(--space-lg); /* Substitui margin-bottom por gap para melhor espaçamento */
+    margin-bottom: var(--space-xl);
+}
+
+.champion-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl); /* Aumentado para melhor separação */
+    flex-grow: 1; /* Garantir preenchimento do espaço disponível */
+}
+
+.champion-image {
+    position: relative;
+    width: clamp(150px, 20vw, 250px); /* Tamanho responsivo */
+    height: clamp(150px, 20vw, 250px);
+    flex-shrink: 0; /* Evitar distorção */
+}
+
+.champion-splash {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--void-purple-light); /* Borda decorativa */
+    box-shadow: var(--shadow-champion); /* Sombreamento especial */
+}
+
+.difficulty-badge {
+    position: absolute;
+    bottom: -0.75rem;
+    right: -0.75rem;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-pill); /* Formato cápsula */
+    background: var(--gradient-difficulty); /* Gradiente para destaque */
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    z-index: 1; /* Garantir sobreposição */
+}
+
+.champion-details {
+    text-align: left;
+    position: relative;
+}
+
+.champion-name {
+    color: var(--void-green);
+    font-size: clamp(2rem, 5vw, 3rem); /* Tamanho responsivo */
+    margin-bottom: var(--space-xs);
+    line-height: 1.1; /* Melhor espaçamento entre linhas */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.champion-title {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    opacity: 0.9;
+}
+
+.section-title {
+    color: var(--void-green);
+    border-bottom: 2px solid var(--void-purple);
+    padding-bottom: var(--space-xs);
+    margin: var(--space-xl) 0 var(--space-lg);
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 30%;
+    height: 2px;
+    background: var(--void-purple-light);
+}
+
+.strategy-description {
+    color: var(--text-primary);
+    margin-bottom: var(--space-xl);
+    line-height: 1.6; /* Melhor legibilidade */
+    font-size: 1.1rem;
+}
+
+.strategy-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout mais responsivo */
+    gap: var(--space-lg);
+}
+
+.strategy-point {
+    background-color: var(--card-bg);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border: var(--border-glow);
+    transition: transform 0.2s ease; /* Efeito de hover interativo */
+}
+
+.strategy-point:hover {
+    transform: translateY(-5px);
+}
+
+.strategy-point h4 {
+    color: var(--void-green);
+    margin-bottom: var(--space-md);
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.rune-tree, .matchup-items {
+    background-color: var(--card-bg);
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    border: var(--border-glow);
+    margin: var(--space-xl) 0;
+}
+
+.rune-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-md);
+}
+
+.rune-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    transition: transform 0.2s ease;
+}
+
+.rune-icon:hover {
+    transform: scale(1.1);
+}
+
+.rune-icon img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.rune-icon.active img {
+    border-color: var(--void-purple-light);
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: var(--space-xl);
+    padding: var(--space-md);
+}
+
+.item-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.item-card img {
+    width: 72px;
+    height: 72px;
+    transition: transform 0.2s ease;
+}
+
+.item-card:hover img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .matchup-detail {
+        padding: var(--space-md);
+        border-radius: 0;
+    }
+    
+    .champion-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .strategy-breakdown {
+        grid-template-columns: 1fr;
+    }
+    
+    .rune-tree, .matchup-items {
+        padding: var(--space-lg);
+    }
+    
+    .item-grid {
+        gap: var(--space-md);
+    }
+}
+
+/* Adicionar animações suaves */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.matchup-detail {
+    animation: fadeIn 0.5s ease-out;
+}

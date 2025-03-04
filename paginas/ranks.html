@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Ranks - Choga</title>
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* CSS do Choga será incluído aqui */
+        /* Incluindo apenas o CSS necessário para esta página */
+        :root {
+            --void-purple: #6a0dad;
+            --void-purple-dark: #4a0080;
+            --void-purple-light: #9d4edd;
+            --void-green: #39ff14;
+            --void-green-muted: rgba(57, 255, 20, 0.6);
+            --bg-dark: #0f0014;
+            --bg-surface: #1a0025;
+            --card-bg: #230033;
+            --card-bg-hover: #3a0055;
+            --text-bright: #ffffff;
+            --text-primary: #e8dfff;
+            --text-secondary: #b5a9d4;
+            --radius-md: 12px;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .ranks-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--void-green);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: var(--space-lg);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+        }
+
+        .ranks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .rank-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+            box-shadow: 0 5px 25px rgba(106, 13, 173, 0.25);
+            border: 1px solid rgba(106, 13, 173, 0.5);
+        }
+
+        .rank-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(106, 13, 173, 0.3);
+            background-color: var(--card-bg-hover);
+        }
+
+        .rank-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+
+        .rank-card:hover .rank-image {
+            transform: scale(1.08);
+        }
+
+        .rank-details {
+            padding: var(--space-md);
+        }
+
+        .rank-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            color: var(--void-green);
+            margin-bottom: var(--space-sm);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+        }
+
+        .rank-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+
+<body>
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="../a.html" class="nav-link active">Inicio</a></li>
+            <li class="nav-item"><a href="../paginas/sobre.html" class="nav-link">Sobre</a></li>
+            <li class="nav-item active"><a href="../paginas/ranks.html" class="nav-link">Ranks</a></li>
+        </ul>
+    </nav>
+    <div class="ranks-container">
+        <h1 class="section-title">Meus Ranks</h1>
+        
+        <div class="ranks-grid">
+            <!-- Exemplo de card de rank - substitua com seus próprios -->
+            <div class="rank-card">
+                <img src="../ims/mestre.jpg" alt="Print de Rank" class="rank-image">
+                <div class="rank-details">
+                    <h2 class="rank-title">Cho'gath TOP</h2>
+                    <p class="rank-description">Peguei mestre pela primeira vez jogando de cho'gath top</p>
+                </div>
+            </div>
+
+            <div class="rank-card">
+                <img src="../ims/gm.jpg" alt="Print de Rank" class="rank-image">
+                <div class="rank-details">
+                    <h2 class="rank-title">Cho'gath MID</h2>
+                    <p class="rank-description">Peguei grão mestre jogando de cho'gath mid</p>
+                </div>
+            </div>
+
+            <div class="rank-card">
+                <img src="../ims/c1.jpeg" alt="Print de Rank" class="rank-image">
+                <div class="rank-details">
+                    <h2 class="rank-title">Cho'gath ADC</h2>
+                    <p class="rank-description">Peguei challenger jogando penas de CHO ADC</p>
+                </div>
+            </div>
+
+            
+            <div class="rank-card">
+                <img src="../ims/rank1 a.jpg" alt="Print de Rank" class="rank-image">
+                <br>
+                <img src="../ims/rank1.jpg" alt="Print de Rank" class="rank-image">
+
+                <div class="rank-details">
+                    <h2 class="rank-title">Rank 1 Mundial</h2>
+                    <p class="rank-description">Também já conquistei o Top 1 Cho Mundial</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
