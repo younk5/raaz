@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cho'Gath ADC Support Matchup Strategies</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/matchups.css">
+    <style>
+        .strategy-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .strategy-category {
+            display: flex;
+            background-color: #1a1a2e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .strategy-category:hover {
+            transform: scale(1.02);
+        }
+        .strategy-image-container {
+            position: relative;
+            width: 250px;
+            flex-shrink: 0;
+        }
+        .strategy-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) brightness(80%);
+            transition: filter 0.3s ease;
+        }
+        .strategy-category:hover .strategy-image {
+            filter: grayscale(0%) brightness(100%);
+        }
+        .strategy-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .category-description {
+            padding: 1.5rem;
+            color: #e0e0e0;
+            flex-grow: 1;
+        }
+        .category-title {
+            color: #4ecdc4;
+            border-bottom: 2px solid #4ecdc4;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .category-description ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .category-description ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .category-description ul li::before {
+            content: '•';
+            color: #4ecdc4;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .strategy-category {
+                flex-direction: column;
+            }
+            .strategy-image-container {
+                width: 100%;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <h1 class="logo">Cho'Gath ADC</h1>
+                </div>
+                <p class="tagline">Estratégias de Matchup contra Suportes</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Início</a></li>
+                <li class="nav-item active"><a href="/paginas/sup.html" class="nav-link">Matchups contra Suporte</a></li>
+                <li class="nav-item"><a href="/paginas/matchup.htmll" class="nav-link">Matchups contra ADC</a></li>
+
+            </ul>
+        </nav>
+
+        <main id="support-strategies">
+            <section class="strategies-section">
+                <div class="section-header">
+                    <h2 class="section-title">Estratégias por Tipo de Suporte</h2>
+                    <p class="section-subtitle">Como lidar com diferentes estilos de suporte</p>
+                </div>
+
+                <div class="strategy-categories">
+                    <div class="strategy-category">
+                        <div class="strategy-image-container">
+                            <img 
+                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Thresh.png" 
+                                alt="Engage Support" 
+                                class="strategy-image"
+                            >
+                            <div class="strategy-image-overlay">
+                                Engage Supports
+                            </div>
+                        </div>
+                        <div class="category-description">
+                            <h3 class="category-title">Engage Supports</h3>
+                            <p>Procure tomar cuidado para não tomar CC INFINITO, pois o Cho'Gath tem problemas de mobilidade e morre fácil se tomar qualquer controle de grupo.</p>
+                            <ul>
+                                <li>Mantenha distância segura e use seu Q para controlar o espaço</li>
+                                <li>Evite ficar próximo a obstáculos que facilitem o engage</li>
+                                <li>Use sua W para interromper combos de CC</li>
+                                <li>Priorize posicionamento defensivo e visão de mapa</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="strategy-category">
+                        <div class="strategy-image-container">
+                            <img 
+                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Lulu.png" 
+                                alt="Peel Support" 
+                                class="strategy-image"
+                            >
+                            <div class="strategy-image-overlay">
+                                Peel Supports
+                            </div>
+                        </div>
+                        <div class="category-description">
+                            <h3 class="category-title">Peel Supports</h3>
+                            <p>Quando for pra cima deles, lembre sempre que eles terão escudos, curar e barreira para defender seu ADC. Tente tirar vida deles e do ADC deles antes de ir pra cima com tudo.</p>
+                            <ul>
+                                <li>Identifique quando os cooldowns de proteção estão em uso</li>
+                                <li>Force trocas quando os escudos/curas estiverem no cooldown</li>
+                                <li>Use seu E para pressionar múltiplos alvos</li>
+                                <li>Tenha paciência e escolha o momento certo para engajamento</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="strategy-category">
+                        <div class="strategy-image-container">
+                            <img 
+                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Senna.png" 
+                                alt="Poke Support" 
+                                class="strategy-image"
+                            >
+                            <div class="strategy-image-overlay">
+                                Poke Supports
+                            </div>
+                        </div>
+                        <div class="category-description">
+                            <h3 class="category-title">Poke Supports</h3>
+                            <p>Procure sempre utilizar sua passiva para recuperar a vida perdida, ela salva muito o early game. Procure matá-los rápido, visto que suportes de poke são sempre muito papéis. Aproveite os matos ao seu favor para conseguir chegar perto.</p>
+                            <ul>
+                                <li>Use a passiva para sustentação constante</li>
+                                <li>Utilize a vegetação para abordagens surpresa</li>
+                                <li>Construa itens de resistência mágica rapidamente</li>
+                                <li>Minimize o dano recebido usando seu W defensivamente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Cho'Gath ADC Matchups</p>
+        </footer>
+    </div>
+</body>
+</html>
