@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia Cho ADC</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/live.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class="void-particles"></div>
@@ -34,12 +37,20 @@
             <li class="nav-item"><a href="#guias" class="nav-link">Guias</a></li>
             <li class="nav-item"><a href="/paginas/matchup.html" class="nav-link">Matchups</a></li>
             <li class="nav-item"><a href="/paginas/sobre.html" class="nav-link">Sobre mim</a></li>
-
         </ul>
     </nav>
     
-
     <main id="guias">
+        <div id="live-notification">
+            <div>
+                <span class="live-dot"></span>
+                Raazgrizz está ao vivo agora!
+            </div>
+            <a href="https://www.twitch.tv/raazgrizz" target="_blank" class="live-btn">
+                Assistir na Twitch
+            </a>
+        </div>
+
         <div class="section-header">
             <h2 class="section-title">Domine o Jogo</h2>
             <p class="section-subtitle">Escolha seu caminho para a vitória</p>
@@ -91,7 +102,6 @@
             </div>
         </div>
     </main>
-
 
     <footer>
         <div class="footer-content">
@@ -152,67 +162,11 @@
                 </nav>
             </div>
             
-            <style>
-            .footer-column {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
-            
-            .social-links {
-                display: flex;
-                justify-content: center;
-                gap: 1rem;
-                align-items: center;
-            }
-            
-            .social-link {
-                display: inline-flex;
-                padding: 0.5rem;
-                border-radius: 50%;
-                transition: all 0.2s ease;
-                color: currentColor;
-                opacity: 0.8;
-            }
-            
-            .social-link:hover {
-                transform: translateY(-3px);
-                opacity: 1;
-                background-color: rgba(255,255,255,0.1);
-            }
-            
-            .social-link.discord:hover {
-                color: #5865F2;
-            }
-            
-            .social-link.twitter:hover {
-                color: #1DA1F2;
-            }
-            
-            .social-link.twitch:hover {
-                color: #9146FF;
-            }
-            
-            .social-link.youtube:hover {
-                color: #FF0000;
-            }
-            
-            .social-icon {
-                width: 24px;
-                height: 24px;
-                transition: transform 0.2s ease;
-            }
-            
-            .social-link:hover .social-icon {
-                transform: scale(1.1);
-            }
-            
-            .social-link:focus-visible {
-                outline: 2px solid currentColor;
-                outline-offset: 2px;
-            }
-            </style>
+
     </footer>
+
+
+<script src="js/script.js" defer></script>
 </body>
 </html>
+

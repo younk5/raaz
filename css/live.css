@@ -1,0 +1,117 @@
+#live-notification {
+    background: linear-gradient(135deg, var(--void-purple), var(--void-purple-dark));
+    color: var(--text-bright);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    margin-bottom: var(--space-md);
+    display: none;
+    animation: fadeIn var(--transition-slow) ease-out;
+    border: var(--border-glow);
+    box-shadow: var(--shadow-void);
+    position: relative;
+    overflow: hidden;
+}
+
+#live-notification::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, var(--void-purple-light) 0%, transparent 70%);
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.live-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--void-purple), var(--void-purple-dark));
+    color: var(--void-green);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: var(--space-sm);
+    transition: all var(--transition-normal);
+    border: 1px solid var(--void-purple-light);
+    box-shadow: var(--shadow-void);
+    position: relative;
+    overflow: hidden;
+}
+
+.live-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.live-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(106, 13, 173, 0.4);
+    background: linear-gradient(90deg, var(--void-purple-dark), var(--void-purple));
+}
+
+.live-btn:hover::before {
+    left: 100%;
+}
+
+.live-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--void-green);
+    border-radius: 50%;
+    margin-right: 10px;
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 10px var(--void-green);
+}
+
+@keyframes pulse {
+    0% { 
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% { 
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% { 
+        transform: scale(1);
+        opacity: 0.7;
+    }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Offline state styles */
+#live-notification.offline {
+    background: linear-gradient(135deg, #555, #333);
+    border-color: rgba(106, 13, 173, 0.3);
+}
+
+.offline .live-dot {
+    background-color: #888;
+    box-shadow: none;
+}
+
+.offline .live-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    border-color: rgba(255, 255, 255, 0.2);
+}
